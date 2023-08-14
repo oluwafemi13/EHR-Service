@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EHR.Core.Entities
 {
-    internal class Entities
+    public class Entities
     {
     }
 }
