@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EHR.Core.Entities
 {
-    internal class Ward
+    public class Ward: BaseEntity
     {
+        public string WardName { get; set; }
+        public string Description { get; set; }
+        public string Location { get; set; }
+        public string Type { get; set; }
     }
 }
