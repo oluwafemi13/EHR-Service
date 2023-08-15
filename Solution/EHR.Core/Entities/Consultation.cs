@@ -11,6 +11,7 @@ public class Consultation: BaseEntity
 {
     [ForeignKey("Patient")]
     public string PatientId { get; set; }
+    public Patient Patient { get; set; }
     public string Doctor { get; set; }
     public DateTime AppointmentDate { get; set; }
     public string Note { get; set; }
