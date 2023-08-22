@@ -8,10 +8,10 @@ namespace EHR.Core.Entities
 {
     public class Account: BaseEntity
     {
-        public string PatientId { get; set; }
-        public Patient Patient { get; set; }
+        public string? PatientId { get; set; }
+        public Patient? Patient { get; set; }
         public decimal Amount { get; set; }
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
         public DateTime AccountDate { get; set; }
     }
 }
