@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EHR.Core.Repositories
 {
-    internal class IAccountRepository
+    public interface IAccountRepository
     {
     }
 }

@@ -13,5 +13,8 @@ namespace EHR.Core.Entities
         public string Password { get; set; }
         public string Email { get; set; }
         public bool IsLock { get; set; }
+        public int FailedCount { get; set; }
+        public int CountThreshold { get; set; }
+
     }
 }
