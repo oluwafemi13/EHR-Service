@@ -10,7 +10,7 @@ namespace EHR.Core.Entities
     {
         public string Levels { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
         public string Email { get; set; }
         public bool IsLock { get; set; }
         public int FailedCount { get; set; }
