@@ -163,3 +163,4 @@ CountThreshold int,
 [CreatedDate]DateTime
 
 )
+Alter table Login add PasswordHash nvarchar(64)
