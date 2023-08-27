@@ -17,13 +17,15 @@ namespace EHR.Application.Data
         private readonly IConfiguration _config;
         private readonly string _connectionString;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public DatabaseContext(IConfiguration config)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _config= config;
             _connectionString = config.GetConnectionString("DefaultConnection");
         }
 
-        public IDbConnection createConnection()
+        public IDbConnection CreateConnection()
         {
             return new SqlConnection(_connectionString);
         } 

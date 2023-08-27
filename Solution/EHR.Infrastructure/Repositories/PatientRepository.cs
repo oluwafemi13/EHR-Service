@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHR.Core.Repositories
+namespace EHR.Infrastructure.Repositories
 {
-    public interface IBaseRepository
+    internal class PatientRepository
     {
     }
 }
