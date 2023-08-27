@@ -19,7 +19,7 @@ namespace EHR.Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task AddNewPatient(Patient patient)
+        public async Task CreatePatient(Patient patient)
         {
             var query1 = "SELECT * FROM Patients where Email = @Email";
             var parameters = new DynamicParameters();
@@ -62,6 +62,28 @@ namespace EHR.Infrastructure.Repositories
                     await connection.ExecuteAsync(query2, parameters2);
 
                 }
+
+            }
+        }
+
+        public Task GetPatientBy(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Patient> GetPatientByEmail(string Email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Patient>> GetPatientByName(string Name)
+        {
+            var query = "SELECT * FROM Patients WHERE LastName = @LastName";
+            var parameter = new DynamicParameters();
+            parameter.Add("name", Name, DbType.String);
+
+            using (var connection = _context.CreateConnection())
+            {
 
             }
         }
