@@ -9,6 +9,6 @@ namespace EHR.Core.Contracts
 {
     public interface IPatientRepository
     {
-        public Task AddNewPatient(Patient patient);
+        public Task CreatePatient(Patient patient);
     }
 }
