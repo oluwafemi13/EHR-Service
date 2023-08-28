@@ -10,7 +10,7 @@ namespace EHR.Core.Contracts
     public interface IPatientRepository
     {
         public Task CreatePatient(Patient patient);
-        public Task GetPatientBy(int Id);
+        public Task<Patient> GetPatientById(int Id);
         public Task<List<Patient>> GetPatientByName(string Name);
         public Task<Patient> GetPatientByEmail(string Email);
     }

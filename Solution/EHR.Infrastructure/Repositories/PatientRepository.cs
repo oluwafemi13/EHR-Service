@@ -66,25 +66,50 @@ namespace EHR.Infrastructure.Repositories
             }
         }
 
-        public Task GetPatientBy(int Id)
+        public async Task<Patient> GetPatientById(int Id)
         {
-            throw new NotImplementedException();
+            var procedure = "GetPatientById";
+            var dynamicParameter = new DynamicParameters();
+            dynamicParameter.Add("Id", Id, DbType.Int32, ParameterDirection.Input);
+
+            using(var connection = _context.CreateConnection())
+            {
+                var result = await connection.QueryFirstOrDefaultAsync<Patient>(procedure, dynamicParameter, commandType: CommandType.StoredProcedure);
+                if(result == null)
+                {
+                    return new Patient();
+                }
+                return result;
+            }
         }
 
-        public Task<Patient> GetPatientByEmail(string Email)
+        public async Task<Patient> GetPatientByEmail(string Email)
         {
-            throw new NotImplementedException();
+            var procedure = "GetPatientByEmail";
+            var parameter = new DynamicParameters();
+            parameter.Add("Email", Email, DbType.String, ParameterDirection.Input);
+            using (var connection = _context.CreateConnection())
+            {
+                var result = await connection.QueryFirstOrDefaultAsync<Patient>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                if(result == null)
+                {
+                    return new Patient();
+                }
+                return result;
+            }
         }
 
-        public Task<List<Patient>> GetPatientByName(string Name)
+        public async Task<List<Patient>> GetPatientByName(string Name)
         {
+            var Lastname = new StringBuilder(Name.Trim());
             var query = "SELECT * FROM Patients WHERE LastName = @LastName";
             var parameter = new DynamicParameters();
-            parameter.Add("name", Name, DbType.String);
+            parameter.Add("LastName", Lastname, DbType.String);
 
             using (var connection = _context.CreateConnection())
             {
-
+                var queryResult = await connection.QueryAsync<Patient>(query, parameter);
+                return queryResult.ToList();
             }
         }
     }
