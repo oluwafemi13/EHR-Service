@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EHR.Application\EHR.Application.csproj" />
-    <ProjectReference Include="..\EHR.Core\EHR.Core.csproj" />
   </ItemGroup>
 
 </Project>

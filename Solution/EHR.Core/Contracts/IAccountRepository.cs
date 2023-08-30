@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHR.Core.Repositories
+namespace EHR.Core.Contracts
 {
     public interface IAccountRepository
     {

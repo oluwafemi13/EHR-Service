@@ -89,6 +89,10 @@ create table Patients(
  [CreatedDate]DateTime,
 
 )
+alter table Patients drop constraint fx_Patients_Wards
+alter table Patients alter column WardId nvarchar null
+alter table Patients drop column WardId
+alter table Patients add HomeAddress nvarchar (100)
 create table Accounts(
  [Id] [int] IDENTITY (1,1) Primary Key not null,
  PatientId Int CONSTRAINT fx_Accounts_Patients FOREIGN KEY (PatientId) references Patients(Id),
