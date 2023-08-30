@@ -16,6 +16,7 @@ namespace EHR.Core.Entities
         public string DOB { get; set; }
         public string sex { get; set; }
         public string MaritalStatus { get; set; }
+        public string NicNo { get; set; }
         public string Religion { get; set; }
         public string Ethnic { get; set; }
         public string BloodGroup { get; set; }
@@ -33,5 +34,7 @@ namespace EHR.Core.Entities
 
         //foreignKey
         public string WardId { get; set; }
+
+        
     }
 }

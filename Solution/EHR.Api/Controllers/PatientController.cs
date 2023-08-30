@@ -9,11 +9,11 @@ namespace EHR.Api.Controllers
     [ApiController]
     public class PatientController : ControllerBase
     {
-        private readonly IHttpContextAccessor _contextAccessor;
+       // private readonly IHttpContextAccessor _contextAccessor;
         private readonly IPatientRepository _patientRepo;
         public PatientController(IPatientRepository patientRepo)
         {
-            _contextAccessor = _contextAccessor ?? throw new ArgumentNullException();
+            
             _patientRepo= patientRepo;
         }
 
@@ -46,6 +46,15 @@ namespace EHR.Api.Controllers
         public async Task<IActionResult> GetPatientByEmail([FromBody] string Email)
         {
             var result = await _patientRepo.GetPatientByEmail(Email);
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+
+        [HttpGet("Getpatients")]
+        public async Task<IActionResult> GetPatients()
+        {
+            var result = await _patientRepo.GetPatients();
             if (result == null)
                 return NotFound();
             return Ok(result);

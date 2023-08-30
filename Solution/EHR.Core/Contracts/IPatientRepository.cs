@@ -13,5 +13,6 @@ namespace EHR.Core.Contracts
         public Task<Patient> GetPatientById(int Id);
         public Task<List<Patient>> GetPatientByName(string Name);
         public Task<Patient> GetPatientByEmail(string Email);
+        public Task<IEnumerable<Patient>> GetPatients();
     }
 }

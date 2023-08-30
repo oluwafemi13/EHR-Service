@@ -1,3 +1,6 @@
+using EHR.Application.Data;
+using EHR.Core.Contracts;
+using EHR.Infrastructure.Repositories;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSingleton<DatabaseContext>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
 {
